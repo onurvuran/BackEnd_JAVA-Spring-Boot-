@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.onur.ws.error.ApiError;
 import com.onur.ws.shared.Views;
 import com.onur.ws.user.User;
 import com.onur.ws.user.UserRepository;
@@ -24,12 +23,8 @@ public class AuthController {
     	   String decoded=new String(Base64.getDecoder().decode(base64encoded));
     	   String[] parts =decoded.split(":");
     	   String username = parts[0];
-    	   
-    
-    	    User inDB = userRepository.findByUsername(username);
-			
-    	   
-    	       return ResponseEntity.ok(inDB);
+    	    User inDB = userRepository.findByUsername(username);	   
+   	       return ResponseEntity.ok(inDB);
 }
 }
 
