@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		
+		http.headers().frameOptions().disable();
 		http.httpBasic().authenticationEntryPoint(new AutEntryPoint());
 		http
 		.authorizeRequests()
@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.and()
 		.authorizeRequests().anyRequest().permitAll();
 		
-	    http.headers().frameOptions().disable();
+	    
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

@@ -21,6 +21,13 @@ public class WsUserDetails implements UserDetails {
 		super();
 		this.user = user;
 	}
+	
+
+	public User getUser() {
+		return user;
+	}
+
+
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -42,7 +49,7 @@ public class WsUserDetails implements UserDetails {
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
